@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>デモ① ワンショットで転写する | HTML-in-Canvas</title>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト">
+        <a href="./index.html">HTML-in-Canvas デモ</a><span aria-hidden="true">/</span
+        ><span>01</span>
+      </nav>
+
+      <header class="demo-header">
+        <p class="eyebrow">DEMO 01</p>
+        <h1>ワンショットで転写する</h1>
+        <p>
+          <code>drawElementImage()</code
+          >を1回呼び、その瞬間のHTMLをCanvasへ描画します。ルビも折り返しも入力欄も、ブラウザーがレイアウトした姿のまま画像になります。
+        </p>
+      </header>
+
+      <section class="demo-workspace" aria-labelledby="workspace-title">
+        <h2 id="workspace-title" class="visually-hidden">操作デモ</h2>
+        <div class="markup-block">
+          <code class="markup-tag">&lt;div&gt;</code>
+          <div class="markup-content">
+            <div id="dom-view" class="dom-view">
+              <article id="content" class="sample-card">
+                <p id="clock" class="clock">--:--:--</p>
+                <p class="sample-copy">
+                  <ruby>吾輩<rp>（</rp><rt>わがはい</rt><rp>）</rp></ruby
+                  >は猫である。名前はまだ無い。どこで生れたかとんと<ruby
+                    >見当<rp>（</rp><rt>けんとう</rt><rp>）</rp></ruby
+                  >がつかぬ。
+                </p>
+                <div class="sample-form">
+                  <label class="visually-hidden" for="text-01">テキスト入力</label>
+                  <input
+                    id="text-01"
+                    type="text"
+                    placeholder="テキストを入力してください"
+                    autocomplete="off"
+                  />
+                  <button type="button">クリック</button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <code class="markup-tag">&lt;/div&gt;</code>
+        </div>
+
+        <div class="toolbar">
+          <button id="move-btn" class="button secondary" type="button">▼ Canvasに入れる</button>
+          <button id="draw-btn" class="button primary" type="button">Canvasに描画</button>
+        </div>
+        <p id="status" class="status" aria-live="polite"></p>
+
+        <div class="markup-block canvas-markup">
+          <code class="markup-tag">&lt;canvas layoutsubtree&gt;</code>
+          <div class="markup-content">
+            <div class="stage">
+              <canvas
+                id="canvas"
+                class="target"
+                width="720"
+                height="260"
+                layoutsubtree
+                aria-label="HTMLを描画するCanvas"
+              ></canvas>
+              <canvas id="loupe" class="loupe" width="128" height="128" hidden></canvas>
+            </div>
+          </div>
+          <code class="markup-tag">&lt;/canvas&gt;</code>
+        </div>
+      </section>
+
+      <div class="observation">
+        <section>
+          <p class="observation-label can">確認できること</p>
+          <h2>HTMLのレイアウトをそのまま描ける</h2>
+          <p>ルビや文章の折り返し、入力欄の見た目まで、Canvas側で組み直す必要はありません。</p>
+        </section>
+        <section>
+          <p class="observation-label limit">この段階の制約</p>
+          <h2>描いた内容は更新されない</h2>
+          <p>
+            時計や入力内容が変わってもCanvasは静止したままです。描画後の内容はピクセルにすぎません。
+          </p>
+        </section>
+      </div>
+
+      <section class="code-section">
+        <p class="section-kicker">CORE CODE</p>
+        <h2>デモの中心となるコード</h2>
+        <div id="code" class="code-view">コードを読み込んでいます…</div>
+      </section>
+
+      <nav class="page-nav" aria-label="デモ間の移動">
+        <a href="./index.html">← デモ一覧</a>
+        <a href="./02-paint-event.html">デモ② 自動で再描画させる →</a>
+      </nav>
+    </main>
+
+    <script type="module" src="/src/01-oneshot.ts"></script>
+  </body>
+</html>

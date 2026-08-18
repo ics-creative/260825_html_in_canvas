@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HTML-in-Canvas APIを3つのデモで段階的に紹介します。" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>HTML-in-Canvas デモ</title>
+  </head>
+  <body>
+    <main class="page page-index">
+      <header class="hero">
+        <p class="eyebrow">ICS MEDIA ARTICLE DEMOS</p>
+        <h1>HTML-in-Canvasの現在地</h1>
+        <p class="hero-copy">
+          CanvasにHTML要素を描くAPIは、何を解決するのでしょうか。<br />
+          3つのデモで、静止画から操作できるUIまでを段階的に確認します。
+        </p>
+        <p id="support" class="support" aria-live="polite">APIの有効状態を確認中です…</p>
+      </header>
+
+      <ol class="demo-list" aria-label="デモ一覧">
+        <li>
+          <a href="./01-oneshot.html">
+            <span class="demo-number">DEMO 01</span>
+            <h2>ワンショットで転写する</h2>
+            <p>
+              <code>drawElementImage()</code
+              >を1回だけ実行します。HTMLのレイアウトをそのまま描けますが、描画後は「ただの絵」です。
+            </p>
+            <span class="demo-link">デモを見る <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="./02-paint-event.html">
+            <span class="demo-number">DEMO 02</span>
+            <h2>自動で再描画させる</h2>
+            <p>
+              <code>paint</code
+              >イベントで描き直します。時計も入力欄も動きますが、描画位置を変えると操作位置がずれます。
+            </p>
+            <span class="demo-link">デモを見る <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="./03-transform-sync.html">
+            <span class="demo-number">DEMO 03</span>
+            <h2>描画位置とDOMを一致させる</h2>
+            <p>
+              戻り値の変換行列をHTML要素へ適用し、回転・拡大した見た目とクリックできる位置を一致させます。
+            </p>
+            <span class="demo-link">デモを見る <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      </ol>
+
+      <aside class="setup" id="setup">
+        <p class="setup-label">このデモについて</p>
+        <h2>Origin Trialを利用しています</h2>
+        <p>
+          HTML-in-Canvasは提案段階の機能です。このデモの公開先はOrigin
+          Trialに登録されているため、対応するChrome系ブラウザーではフラグを変更せずにお試しいただけます。
+        </p>
+        <a href="https://wicg.github.io/html-in-canvas/">仕様提案を見る</a>
+      </aside>
+    </main>
+
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>
