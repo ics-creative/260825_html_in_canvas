@@ -17,6 +17,8 @@ npm run dev
 
 HTML-in-Canvasは提案段階のAPIです。公開デモのデプロイ先はOrigin Trialへ登録する前提です。ローカル環境や独自のデプロイ先で試す場合は、対応するChrome系ブラウザーで`chrome://flags/#canvas-draw-element`を有効にするか、そのオリジンをOrigin Trialへ登録してください。
 
+公開デモのOrigin Trialトークンは2026年10月20日まで有効です。Trialが延長された場合は、各HTMLの`origin-trial`メタタグを新しいトークンへ差し替えてください。
+
 ## コマンド
 
 ```sh
