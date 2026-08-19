@@ -32,15 +32,25 @@ export function attachClickAlert(container: HTMLElement): void {
   });
 }
 
-export async function renderCodeExcerpt(source: string): Promise<void> {
-  const target = document.querySelector<HTMLElement>('#code');
+export async function renderCodeExcerpt(
+  source: string,
+  targetSelector = '#code',
+  region = 'excerpt',
+): Promise<void> {
+  const target = document.querySelector<HTMLElement>(targetSelector);
   if (!target) return;
 
   const lines = source.split('\n');
-  const start = lines.findIndex((line) => line.includes('#region excerpt'));
-  const end = lines.findIndex((line) => line.includes('#endregion'));
-  const excerpt = lines
-    .slice(start + 1, end)
+  const start = lines.findIndex((line) => line.includes(`#region ${region}`));
+  const end = lines.findIndex((line, index) => index > start && line.includes('#endregion'));
+  const excerptLines = lines.slice(start + 1, end);
+  const commonIndent = Math.min(
+    ...excerptLines
+      .filter((line) => line.trim())
+      .map((line) => line.match(/^\s*/)?.[0].length ?? 0),
+  );
+  const excerpt = excerptLines
+    .map((line) => line.slice(commonIndent))
     .join('\n')
     .trim();
 

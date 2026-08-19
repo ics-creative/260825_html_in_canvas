@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CanvasRenderingContext2Dのテキスト描画と、Canvasで操作可能なUIボタンを作る実験ページです。"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>work page</title>
+  </head>
+  <body>
+    <main class="work-page">
+      <header class="work-header">
+        <h1>work page</h1>
+      </header>
+
+      <section
+        id="fill-text-demo"
+        class="work-demo fill-text-demo"
+        aria-labelledby="fill-text-title"
+      >
+        <h2 id="fill-text-title">annoyance of canvas fillText()</h2>
+        <h3 class="work-code-label">YOUR CODE:</h3>
+        <div id="simple-code" class="code-view work-code-view">
+          <pre><code>ctx.font = '40px "Noto Sans JP"';
+ctx.fillText(text, 0, 50, 400);</code></pre>
+        </div>
+
+        <div class="canvas-comparison">
+          <figure class="canvas-example">
+            <figcaption class="canvas-example-heading">
+              <span class="example-badge is-correct">IDEAL</span>
+            </figcaption>
+            <canvas
+              id="canvas-word-wrap"
+              width="400"
+              height="150"
+              aria-label="単語ごとに幅を計測し、複数行に折り返して描画した英文"
+            ></canvas>
+          </figure>
+
+          <figure class="canvas-example">
+            <figcaption class="canvas-example-heading">
+              <span class="example-badge is-limited">ACTUAL</span>
+            </figcaption>
+            <canvas
+              id="canvas-no-wrap"
+              width="400"
+              height="150"
+              aria-label="fillTextのmaxWidthに400を指定し、横方向に縮めて描画した英文"
+            ></canvas>
+          </figure>
+        </div>
+
+        <section class="wrap-note">
+          <h3>「正しく改行する」には追加の処理が必要</h3>
+          <div class="code-summary">
+            <p>
+              自動で折り返す機能はないので、<code>Intl.Segmenter</code>で単語に分け、単語ごとに<code>measureText()</code>で幅を計測しながら描画します。
+              欧文のハイフネーションや和文の禁足処理も必要な場合、さらに追加の実装が必要です。
+            </p>
+            <div id="wrap-code" class="code-view work-code-view">
+              <pre><code>for (const { segment } of segments) {
+  const nextLine = line + segment;
+  if (ctx.measureText(nextLine).width &gt; 400) {
+    ctx.fillText(line.trimEnd(), 0, y);
+    line = segment.trimStart();
+    y += lineHeight;
+  } else {
+    line = nextLine;
+  }
+}</code></pre>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section
+        id="canvas-ui-button-demo"
+        class="work-demo canvas-ui-demo"
+        aria-labelledby="canvas-ui-title"
+      >
+        <h2 id="canvas-ui-title">building a proper UI button with Canvas</h2>
+        <p>
+          ポインターの出入りと押下状態、キーボード操作、フォーカス表示をCanvas 2D
+          APIだけで実装します。
+        </p>
+        <canvas
+          id="canvas-ui-button"
+          class="canvas-ui-button"
+          width="400"
+          height="200"
+          role="button"
+          tabindex="0"
+          aria-label="Click Me!"
+          aria-describedby="canvas-ui-help canvas-ui-status"
+          aria-keyshortcuts="Enter Space"
+        >
+          Click Me!
+        </canvas>
+        <p id="canvas-ui-help" class="canvas-ui-help">
+          マウス、タッチ、Tabキー、Enterキー、Spaceキーで操作できます。
+        </p>
+        <p id="canvas-ui-status" class="canvas-ui-status" aria-live="polite"></p>
+
+        <section class="canvas-ui-code" aria-labelledby="canvas-ui-code-title">
+          <p class="section-kicker">IMPLEMENTATION</p>
+          <h3 id="canvas-ui-code-title">コード例</h3>
+          <p>
+            描画だけでなく、ヒットテスト、押下中の領域判定、ポインターキャプチャ、キーボード操作、フォーカス表示、アクセシビリティ上の通知まで個別に実装する必要があります。
+          </p>
+          <div id="canvas-ui-code" class="code-view work-code-view">コードを読み込んでいます…</div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/work.ts"></script>
+  </body>
+</html>

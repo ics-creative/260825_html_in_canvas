@@ -12,6 +12,7 @@ export default defineConfig({
         oneshot: page('01-oneshot.html'),
         paint: page('02-paint-event.html'),
         transform: page('03-transform-sync.html'),
+        work: page('work.html'),
       },
     },
   },
