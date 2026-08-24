@@ -4,38 +4,40 @@ import {
   renderCodeExcerpt,
   showApiNotice,
   startClock,
-} from './shared';
-import source from './01-oneshot.ts?raw';
+} from "./shared";
+import source from "./01-oneshot.ts?raw";
 
-const canvas = document.querySelector<HTMLCanvasElement>('#canvas')!;
-const domView = document.querySelector<HTMLElement>('#dom-view')!;
-const content = document.querySelector<HTMLElement>('#content')!;
-const clock = document.querySelector<HTMLElement>('#clock')!;
-const sampleUi = document.querySelector<HTMLElement>('.sample-form')!;
-const moveButton = document.querySelector<HTMLButtonElement>('#move-btn')!;
-const drawButton = document.querySelector<HTMLButtonElement>('#draw-btn')!;
-const status = document.querySelector<HTMLElement>('#status')!;
-const ctx = canvas.getContext('2d')!;
+const canvas = document.querySelector<HTMLCanvasElement>("#canvas")!;
+const domView = document.querySelector<HTMLElement>("#dom-view")!;
+const content = document.querySelector<HTMLElement>("#content")!;
+const clock = document.querySelector<HTMLElement>("#clock")!;
+const sampleUi = document.querySelector<HTMLElement>(".sample-form")!;
+const moveButton = document.querySelector<HTMLButtonElement>("#move-btn")!;
+const drawButton = document.querySelector<HTMLButtonElement>("#draw-btn")!;
+const status = document.querySelector<HTMLElement>("#status")!;
+const ctx = canvas.getContext("2d")!;
 
 startClock(clock);
 attachClickAlert(sampleUi);
 showApiNotice();
 
-moveButton.addEventListener('click', () => {
+moveButton.addEventListener("click", () => {
   const movingIntoCanvas = content.parentElement !== canvas;
   (movingIntoCanvas ? canvas : domView).append(content);
-  domView.classList.toggle('is-empty', movingIntoCanvas);
-  moveButton.textContent = movingIntoCanvas ? '▲ Canvasから出す' : '▼ Canvasに入れる';
-  status.textContent = '';
+  domView.classList.toggle("is-empty", movingIntoCanvas);
+  moveButton.textContent = movingIntoCanvas
+    ? "▲ Canvasから出す"
+    : "▼ Canvasに入れる";
+  status.textContent = "";
 });
 
 if (!isApiAvailable()) {
   drawButton.disabled = true;
 } else {
   // #region excerpt
-  drawButton.addEventListener('click', () => {
+  drawButton.addEventListener("click", () => {
     ctx.reset();
-    status.textContent = '';
+    status.textContent = "";
     try {
       // クリックした瞬間のHTMLをCanvasへ描画する
       ctx.drawElementImage(content, 0, 0);
@@ -46,12 +48,12 @@ if (!isApiAvailable()) {
   // #endregion
 }
 
-const loupe = document.querySelector<HTMLCanvasElement>('#loupe')!;
-const loupeContext = loupe.getContext('2d')!;
+const loupe = document.querySelector<HTMLCanvasElement>("#loupe")!;
+const loupeContext = loupe.getContext("2d")!;
 const zoom = 8;
 const sourceSize = loupe.width / zoom;
 
-canvas.addEventListener('pointermove', (event) => {
+canvas.addEventListener("pointermove", (event) => {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
   const scaleY = canvas.height / rect.height;
@@ -77,7 +79,7 @@ canvas.addEventListener('pointermove', (event) => {
   loupe.style.top = `${event.clientY - rect.top - loupe.height / 2}px`;
 });
 
-canvas.addEventListener('pointerleave', () => {
+canvas.addEventListener("pointerleave", () => {
   loupe.hidden = true;
 });
 

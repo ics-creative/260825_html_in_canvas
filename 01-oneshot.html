@@ -14,8 +14,8 @@
   <body>
     <main class="page">
       <nav class="breadcrumbs" aria-label="パンくずリスト">
-        <a href="./index.html">HTML-in-Canvas デモ</a><span aria-hidden="true">/</span
-        ><span>01</span>
+        <a href="./index.html">HTML-in-Canvas デモ</a
+        ><span aria-hidden="true">/</span><span>01</span>
       </nav>
 
       <header class="demo-header">
@@ -42,7 +42,9 @@
                   >がつかぬ。
                 </p>
                 <div class="sample-form">
-                  <label class="visually-hidden" for="text-01">テキスト入力</label>
+                  <label class="visually-hidden" for="text-01"
+                    >テキスト入力</label
+                  >
                   <input
                     id="text-01"
                     type="text"
@@ -58,8 +60,12 @@
         </div>
 
         <div class="toolbar">
-          <button id="move-btn" class="button secondary" type="button">▼ Canvasに入れる</button>
-          <button id="draw-btn" class="button primary" type="button">Canvasに描画</button>
+          <button id="move-btn" class="button secondary" type="button">
+            ▼ Canvasに入れる
+          </button>
+          <button id="draw-btn" class="button primary" type="button">
+            Canvasに描画
+          </button>
         </div>
         <p id="status" class="status" aria-live="polite"></p>
 
@@ -75,7 +81,13 @@
                 layoutsubtree
                 aria-label="HTMLを描画するCanvas"
               ></canvas>
-              <canvas id="loupe" class="loupe" width="128" height="128" hidden></canvas>
+              <canvas
+                id="loupe"
+                class="loupe"
+                width="128"
+                height="128"
+                hidden
+              ></canvas>
             </div>
           </div>
           <code class="markup-tag">&lt;/canvas&gt;</code>
@@ -86,7 +98,9 @@
         <section>
           <p class="observation-label can">確認できること</p>
           <h2>HTMLのレイアウトをそのまま描ける</h2>
-          <p>ルビや文章の折り返し、入力欄の見た目まで、Canvas側で組み直す必要はありません。</p>
+          <p>
+            ルビや文章の折り返し、入力欄の見た目まで、Canvas側で組み直す必要はありません。
+          </p>
         </section>
         <section>
           <p class="observation-label limit">この段階の制約</p>

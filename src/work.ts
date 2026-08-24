@@ -33,7 +33,9 @@ async function drawTextExamples() {
     const ctx = getContext("canvas-word-wrap");
 
     ctx.font = '40px "Noto Sans JP"';
-    const segments = new Intl.Segmenter("en", { granularity: "word" }).segment(text);
+    const segments = new Intl.Segmenter("en", { granularity: "word" }).segment(
+      text,
+    );
     const lineHeight = 42;
     let line = "";
     let y = 42;
@@ -59,7 +61,8 @@ async function drawTextExamples() {
 }
 
 // #region button
-const buttonCanvas = document.querySelector<HTMLCanvasElement>("#canvas-ui-button")!;
+const buttonCanvas =
+  document.querySelector<HTMLCanvasElement>("#canvas-ui-button")!;
 const buttonContext = buttonCanvas.getContext("2d")!;
 const buttonStatus = document.querySelector<HTMLElement>("#canvas-ui-status")!;
 const buttonBounds = { x: 90, y: 60, width: 220, height: 80 };
@@ -82,8 +85,12 @@ const buttonColors = {
 
 function isPointInButton(event: PointerEvent) {
   const canvasBounds = buttonCanvas.getBoundingClientRect();
-  const x = ((event.clientX - canvasBounds.left) * buttonCanvas.width) / canvasBounds.width;
-  const y = ((event.clientY - canvasBounds.top) * buttonCanvas.height) / canvasBounds.height;
+  const x =
+    ((event.clientX - canvasBounds.left) * buttonCanvas.width) /
+    canvasBounds.width;
+  const y =
+    ((event.clientY - canvasBounds.top) * buttonCanvas.height) /
+    canvasBounds.height;
   return (
     x >= buttonBounds.x &&
     x <= buttonBounds.x + buttonBounds.width &&
@@ -162,7 +169,11 @@ buttonCanvas.addEventListener("pointerleave", () => {
 });
 
 buttonCanvas.addEventListener("pointerdown", (event) => {
-  if ((event.pointerType === "mouse" && event.button !== 0) || !isPointInButton(event)) return;
+  if (
+    (event.pointerType === "mouse" && event.button !== 0) ||
+    !isPointInButton(event)
+  )
+    return;
 
   event.preventDefault();
   pointerIsDown = true;
@@ -201,7 +212,11 @@ buttonCanvas.addEventListener("lostpointercapture", () => {
 });
 
 buttonCanvas.addEventListener("keydown", (event) => {
-  if ((event.key !== "Enter" && event.key !== " ") || event.repeat || activeKey !== undefined)
+  if (
+    (event.key !== "Enter" && event.key !== " ") ||
+    event.repeat ||
+    activeKey !== undefined
+  )
     return;
 
   event.preventDefault();

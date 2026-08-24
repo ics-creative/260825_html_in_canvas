@@ -1,12 +1,5 @@
 {
-  "printWidth": 100,
-  "singleQuote": true,
-  "overrides": [
-    {
-      "files": ["src/work.ts"],
-      "options": {
-        "singleQuote": false
-      }
-    }
-  ]
+  "printWidth": 80,
+  "singleQuote": false,
+  "sortPackageJson": false
 }

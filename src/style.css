@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:wght@200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:wght@200..900&display=swap");
 
 :root {
   color-scheme: light;
@@ -28,7 +28,7 @@
   --success: var(--theme-primary);
   --warning: var(--theme-secondary);
   --danger: var(--theme-primary);
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
   line-height: 1.8;
   color: var(--ink);
@@ -64,7 +64,7 @@ code {
   padding: 0.12em 0.38em;
   border: 1px solid var(--line);
   border-radius: 5px;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   font-size: 0.86em;
   background: var(--content-bg-level1);
 }
@@ -139,7 +139,7 @@ code {
 }
 
 .support::before {
-  content: '';
+  content: "";
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -207,7 +207,7 @@ code {
 }
 
 .demo-list a::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: 26px;
@@ -448,7 +448,7 @@ code {
 }
 
 .dom-view.is-empty::before {
-  content: 'HTMLはCanvas内にあります';
+  content: "HTMLはCanvas内にあります";
   font-size: 0.8rem;
   color: var(--faint);
 }
@@ -502,7 +502,7 @@ code {
 
 .clock {
   margin: 0 0 13px;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   font-size: 2.15rem;
   font-variant-numeric: tabular-nums;
   font-weight: 650;
@@ -512,7 +512,7 @@ code {
 
 .sample-copy {
   margin: 0;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 0.93rem;
   line-height: 2;
 }
@@ -616,7 +616,7 @@ code {
   opacity: 0.45;
 }
 
-.controls input[type='range'] {
+.controls input[type="range"] {
   width: 100%;
   margin: 0;
   accent-color: var(--accent);
@@ -625,7 +625,7 @@ code {
 .controls output {
   min-width: 4.3em;
   text-align: right;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   color: var(--ink);
 }
 

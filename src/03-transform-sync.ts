@@ -4,22 +4,22 @@ import {
   renderCodeExcerpt,
   showApiNotice,
   startClock,
-} from './shared';
-import source from './03-transform-sync.ts?raw';
+} from "./shared";
+import source from "./03-transform-sync.ts?raw";
 
-const canvas = document.querySelector<HTMLCanvasElement>('#canvas')!;
-const domView = document.querySelector<HTMLElement>('#dom-view')!;
-const content = document.querySelector<HTMLElement>('#content')!;
-const clock = document.querySelector<HTMLElement>('#clock')!;
-const sampleUi = document.querySelector<HTMLElement>('.sample-form')!;
-const moveButton = document.querySelector<HTMLButtonElement>('#move-btn')!;
-const xSlider = document.querySelector<HTMLInputElement>('#x-slider')!;
-const scaleSlider = document.querySelector<HTMLInputElement>('#scale-slider')!;
-const angleSlider = document.querySelector<HTMLInputElement>('#angle-slider')!;
-const xValue = document.querySelector<HTMLOutputElement>('#x-value')!;
-const scaleValue = document.querySelector<HTMLOutputElement>('#scale-value')!;
-const angleValue = document.querySelector<HTMLOutputElement>('#angle-value')!;
-const ctx = canvas.getContext('2d')!;
+const canvas = document.querySelector<HTMLCanvasElement>("#canvas")!;
+const domView = document.querySelector<HTMLElement>("#dom-view")!;
+const content = document.querySelector<HTMLElement>("#content")!;
+const clock = document.querySelector<HTMLElement>("#clock")!;
+const sampleUi = document.querySelector<HTMLElement>(".sample-form")!;
+const moveButton = document.querySelector<HTMLButtonElement>("#move-btn")!;
+const xSlider = document.querySelector<HTMLInputElement>("#x-slider")!;
+const scaleSlider = document.querySelector<HTMLInputElement>("#scale-slider")!;
+const angleSlider = document.querySelector<HTMLInputElement>("#angle-slider")!;
+const xValue = document.querySelector<HTMLOutputElement>("#x-value")!;
+const scaleValue = document.querySelector<HTMLOutputElement>("#scale-value")!;
+const angleValue = document.querySelector<HTMLOutputElement>("#angle-value")!;
+const ctx = canvas.getContext("2d")!;
 
 startClock(clock);
 attachClickAlert(sampleUi);
@@ -28,11 +28,13 @@ showApiNotice();
 const apiAvailable = isApiAvailable();
 
 // 記事の説明を補助するため、HTMLをCanvasの内外へ移動できるようにする
-moveButton.addEventListener('click', () => {
+moveButton.addEventListener("click", () => {
   const movingIntoCanvas = content.parentElement !== canvas;
   (movingIntoCanvas ? canvas : domView).append(content);
-  domView.classList.toggle('is-empty', movingIntoCanvas);
-  moveButton.textContent = movingIntoCanvas ? '▲ Canvasから出す' : '▼ Canvasに入れる';
+  domView.classList.toggle("is-empty", movingIntoCanvas);
+  moveButton.textContent = movingIntoCanvas
+    ? "▲ Canvasから出す"
+    : "▼ Canvasに入れる";
   for (const slider of [xSlider, scaleSlider, angleSlider]) {
     slider.disabled = !movingIntoCanvas;
   }
@@ -43,7 +45,7 @@ moveButton.addEventListener('click', () => {
 
 if (apiAvailable) {
   // #region excerpt
-  canvas.addEventListener('paint', () => {
+  canvas.addEventListener("paint", () => {
     ctx.reset();
     if (content.parentElement !== canvas) return;
 
@@ -61,7 +63,7 @@ if (apiAvailable) {
   });
 
   for (const slider of [xSlider, scaleSlider, angleSlider]) {
-    slider.addEventListener('input', () => canvas.requestPaint());
+    slider.addEventListener("input", () => canvas.requestPaint());
   }
 
   canvas.requestPaint();
@@ -76,7 +78,7 @@ const updateValues = () => {
 
 updateValues();
 for (const slider of [xSlider, scaleSlider, angleSlider]) {
-  slider.addEventListener('input', updateValues);
+  slider.addEventListener("input", updateValues);
 }
 
 void renderCodeExcerpt(source);
