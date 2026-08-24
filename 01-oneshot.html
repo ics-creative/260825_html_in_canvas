@@ -13,13 +13,16 @@
   </head>
   <body>
     <main class="page">
-      <nav class="breadcrumbs" aria-label="パンくずリスト">
-        <a href="./index.html">HTML-in-Canvas デモ</a
-        ><span aria-hidden="true">/</span><span>01</span>
+      <nav class="demo-nav" aria-label="デモナビゲーション">
+        <a href="./index.html">Index</a><span aria-hidden="true">|</span
+        ><span aria-current="page">Demo 01</span
+        ><span aria-hidden="true">|</span
+        ><a href="./02-paint-event.html">Demo 02</a
+        ><span aria-hidden="true">|</span
+        ><a href="./03-transform-sync.html">Demo 03</a>
       </nav>
 
       <header class="demo-header">
-        <p class="eyebrow">DEMO 01</p>
         <h1>ワンショットで転写する</h1>
         <p>
           <code>drawElementImage()</code
@@ -111,16 +114,10 @@
         </section>
       </div>
 
-      <section class="code-section">
-        <p class="section-kicker">CORE CODE</p>
-        <h2>デモの中心となるコード</h2>
+      <details class="code-section">
+        <summary>デモの中心となるコード</summary>
         <div id="code" class="code-view">コードを読み込んでいます…</div>
-      </section>
-
-      <nav class="page-nav" aria-label="デモ間の移動">
-        <a href="./index.html">← デモ一覧</a>
-        <a href="./02-paint-event.html">デモ② 自動で再描画させる →</a>
-      </nav>
+      </details>
     </main>
 
     <script type="module" src="/src/01-oneshot.ts"></script>

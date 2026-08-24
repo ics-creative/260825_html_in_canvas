@@ -17,13 +17,16 @@
   </head>
   <body>
     <main class="page page-index">
+      <nav class="demo-nav" aria-label="デモナビゲーション">
+        <span aria-current="page">Index</span><span aria-hidden="true">|</span
+        ><a href="./01-oneshot.html">Demo 01</a><span aria-hidden="true">|</span
+        ><a href="./02-paint-event.html">Demo 02</a
+        ><span aria-hidden="true">|</span
+        ><a href="./03-transform-sync.html">Demo 03</a>
+      </nav>
+
       <header class="hero">
-        <p class="eyebrow">ICS MEDIA ARTICLE DEMOS</p>
-        <h1>HTML-in-Canvasの現在地</h1>
-        <p class="hero-copy">
-          CanvasにHTML要素を描くAPIは、何を解決するのでしょうか。<br />
-          3つのデモで、静止画から操作できるUIまでを段階的に確認します。
-        </p>
+        <h1>デモ：HTML-in-Canvasの基本機能</h1>
         <p id="support" class="support" aria-live="polite">
           APIの有効状態を確認中です…
         </p>
@@ -38,9 +41,6 @@
               <code>drawElementImage()</code
               >を1回だけ実行します。HTMLのレイアウトをそのまま描けますが、描画後は「ただの絵」です。
             </p>
-            <span class="demo-link"
-              >デモを見る <span aria-hidden="true">→</span></span
-            >
           </a>
         </li>
         <li>
@@ -51,9 +51,6 @@
               <code>paint</code
               >イベントで描き直します。時計も入力欄も動きますが、描画位置を変えると操作位置がずれます。
             </p>
-            <span class="demo-link"
-              >デモを見る <span aria-hidden="true">→</span></span
-            >
           </a>
         </li>
         <li>
@@ -63,15 +60,11 @@
             <p>
               戻り値の変換行列をHTML要素へ適用し、回転・拡大した見た目とクリックできる位置を一致させます。
             </p>
-            <span class="demo-link"
-              >デモを見る <span aria-hidden="true">→</span></span
-            >
           </a>
         </li>
       </ol>
 
       <aside class="setup" id="setup">
-        <p class="setup-label">このデモについて</p>
         <h2>Origin Trialを利用しています</h2>
         <p>
           HTML-in-Canvasは提案段階の機能です。このデモの公開先はOrigin

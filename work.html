@@ -22,7 +22,7 @@
         class="work-demo fill-text-demo"
         aria-labelledby="fill-text-title"
       >
-        <h2 id="fill-text-title">annoyance of canvas fillText()</h2>
+        <h2 id="fill-text-title">Canvasテキストを折り返す</h2>
         <h3 class="work-code-label">YOUR CODE:</h3>
         <div id="simple-code" class="code-view work-code-view">
           <pre><code>ctx.font = '40px "Noto Sans JP"';
@@ -60,7 +60,7 @@ ctx.fillText(text, 0, 50, 400);</code></pre>
           <div class="code-summary">
             <p>
               自動で折り返す機能はないので、<code>Intl.Segmenter</code>で単語に分け、単語ごとに<code>measureText()</code>で幅を計測しながら描画します。
-              欧文のハイフネーションや和文の禁足処理も必要な場合、さらに追加の実装が必要です。
+              欧文のハイフネーションや和文の禁則処理も必要な場合、さらに追加の実装が必要です。
             </p>
             <div id="wrap-code" class="code-view work-code-view">
               <pre><code>for (const { segment } of segments) {
@@ -83,7 +83,7 @@ ctx.fillText(text, 0, 50, 400);</code></pre>
         class="work-demo canvas-ui-demo"
         aria-labelledby="canvas-ui-title"
       >
-        <h2 id="canvas-ui-title">building a proper UI button with Canvas</h2>
+        <h2 id="canvas-ui-title">Canvasで正しく動くUIを作る</h2>
         <p>
           ポインターの出入りと押下状態、キーボード操作、フォーカス表示をCanvas
           2D APIだけで実装します。
