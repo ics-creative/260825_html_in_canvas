@@ -470,6 +470,10 @@ code {
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45);
 }
 
+.loupe-stage {
+  overflow: hidden;
+}
+
 .target {
   display: block;
   width: 720px;
