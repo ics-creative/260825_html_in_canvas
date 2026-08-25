@@ -1,12 +1,10 @@
 # HTML-in-Canvas demos
 
-ICS MEDIAの記事「HTML-in-Canvasの現在地 ー canvasにHTMLを描くAPIは何を解決するのか？」で使用するデモプロジェクトです。
+ICS MEDIAの記事[『新API「HTML-in-Canvas」紹介 - CanvasにHTMLを描くAPIは何を解決するのか？』](https://ics.media/entry/260825/)で使用するデモプロジェクトです。
 
 ## デモ
 
-1. `drawElementImage()`でHTMLを一度だけCanvasへ描画する
-2. `paint`イベントでHTMLの変化を自動的に再描画する
-3. 戻り値の変換行列を使い、Canvasの描画位置とDOMの操作位置を一致させる
+[デモページを表示](https://ics-creative.github.io/260825_html_in_canvas/)
 
 ## 実行方法
 
@@ -27,5 +25,3 @@ npm run build        # 型チェックと本番ビルド
 npm run format       # oxfmtでコードを整形
 npm run format:check # 整形状態を確認
 ```
-
-仕様提案: [WICG/html-in-canvas](https://wicg.github.io/html-in-canvas/)
