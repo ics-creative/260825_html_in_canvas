@@ -297,6 +297,22 @@ code {
   margin-top: 38px;
 }
 
+.is-embedded .page {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.is-embedded .demo-nav,
+.is-embedded .demo-header,
+.is-embedded .observation,
+.is-embedded .code-section {
+  display: none;
+}
+
+.is-embedded .demo-workspace {
+  margin-top: 0;
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -390,6 +406,7 @@ code {
   align-items: flex-start;
   min-height: 215px;
   padding: 24px;
+  overflow: hidden;
   border: 1px dashed var(--line-strong);
   border-radius: 14px;
   background: var(--content-bg-light);
@@ -415,7 +432,7 @@ code {
   position: relative;
   max-width: 100%;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: conic-gradient(

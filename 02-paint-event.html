@@ -8,6 +8,14 @@
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (
+        new URLSearchParams(location.search).has("embed") ||
+        location.hash === "#embed"
+      ) {
+        document.documentElement.classList.add("is-embedded");
+      }
+    </script>
     <link rel="stylesheet" href="/src/style.css" />
     <title>デモ② 自動で再描画させる | HTML-in-Canvas</title>
   </head>
