@@ -211,7 +211,7 @@ code {
 
 .demo-list p {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--muted);
 }
@@ -229,7 +229,7 @@ code {
 
 .setup p {
   margin: 0 0 8px;
-  font-size: 0.84rem;
+  font-size: 1rem;
   color: var(--muted);
 }
 
@@ -243,7 +243,7 @@ code {
   align-items: center;
   gap: 9px;
   margin-bottom: 16px;
-  font-size: 0.78rem;
+  font-size: 1rem;
   color: var(--faint);
 }
 
@@ -348,7 +348,7 @@ code {
 .status {
   min-height: 1.7em;
   margin: 10px 0 22px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
   color: var(--muted);
 }
@@ -407,7 +407,7 @@ code {
 
 .dom-view.is-empty::before {
   content: "HTMLはCanvas内にあります";
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--faint);
 }
 
@@ -570,7 +570,7 @@ code {
   grid-template-columns: auto minmax(64px, 1fr) auto;
   align-items: center;
   gap: 8px;
-  font-size: 0.78rem;
+  font-size: 1rem;
   color: var(--muted);
 }
 
@@ -636,7 +636,7 @@ code {
 
 .observation section > p:last-child {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--muted);
 }
