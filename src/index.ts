@@ -1,7 +1,8 @@
-const support = document.querySelector<HTMLElement>("#support")!;
-const ctx = document.createElement("canvas").getContext("2d")!;
+import { isApiAvailable } from "./shared";
 
-if ("drawElementImage" in ctx) {
+const support = document.querySelector<HTMLElement>("#support")!;
+
+if (isApiAvailable()) {
   support.textContent = "このブラウザーではHTML-in-Canvas APIが有効です。";
   support.classList.add("is-supported");
 } else {

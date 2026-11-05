@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="origin-trial"
-      content="AvRtz0AMUsM5fZ37dnoSpq+/tmwT1XmjHKsWDTk921KBYZ8O49VedgnNXzSAl+o8Qj/jd3u1fpqLUiQYPRSgfAQAAABceyJvcmlnaW4iOiJodHRwczovL2ljcy1jcmVhdGl2ZS5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTc5MjQ1NDQwMH0="
+      content="AuEcDvNbj2XdRm+ij+Un3AbsdihqNsdGsRC8WnUs7JL3SHu6p8BuTyduVy2908rTxBfXU28LgpoPEaWk1MD0lQYAAABveyJvcmlnaW4iOiJodHRwczovL2ljcy1jcmVhdGl2ZS5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTgwMzk0NTYwMCwiaXNTdWJkb21haW4iOnRydWV9"
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +39,7 @@
             <h2>ワンショットで転写する</h2>
             <p>
               <code>drawElementImage()</code
-              >を1回だけ実行します。HTMLのレイアウトをそのまま描けますが、描画後は「ただの絵」です。
+              >をボタン操作で1回だけ実行します。HTMLのレイアウトを描画し、次に描画するまで見た目を保持します。
             </p>
           </a>
         </li>
@@ -49,26 +49,26 @@
             <h2>自動で再描画させる</h2>
             <p>
               <code>paint</code
-              >イベントで描き直します。時計も入力欄も動きますが、描画位置を変えると操作位置がずれます。
+              >イベントで描き直します。時計や入力内容、ホバーなどの変化がCanvasへ反映されます。
             </p>
           </a>
         </li>
         <li>
           <a href="./03-transform-sync.html">
             <span class="demo-number">DEMO 03</span>
-            <h2>描画位置とDOMを一致させる</h2>
+            <h2>変形しても操作できる</h2>
             <p>
-              戻り値の変換行列をHTML要素へ適用し、回転・拡大した見た目とクリックできる位置を一致させます。
+              Canvasで移動・拡大・回転させます。DOMの操作位置も自動で同期されるため、変形後もそのまま操作できます。
             </p>
           </a>
         </li>
       </ol>
 
       <aside class="setup" id="setup">
-        <h2>Origin Trialを利用しています</h2>
+        <h2>対応ブラウザーについて</h2>
         <p>
-          HTML-in-Canvasは提案段階の機能です。このデモの公開先はOrigin
-          Trialに登録されているため、対応するChrome系ブラウザーではフラグを変更せずにお試しいただけます。
+          このデモはcontent="drawable"と操作位置の自動同期に対応した新しいHTML-in-Canvas
+          APIを使用しています。対応するChrome系ブラウザーでお試しください。
         </p>
         <a href="https://wicg.github.io/html-in-canvas/">仕様提案を見る</a>
       </aside>

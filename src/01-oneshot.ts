@@ -39,7 +39,7 @@ if (!isApiAvailable()) {
     ctx.reset();
     status.textContent = "";
     try {
-      // クリックした瞬間のHTMLをCanvasへ描画する
+      // ブラウザーが記録した最新のHTMLの描画状態を転写する
       ctx.drawElementImage(content, 0, 0);
     } catch (error) {
       status.textContent = `描画できませんでした：${String(error)}`;

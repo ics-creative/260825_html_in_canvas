@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="origin-trial"
-      content="AvRtz0AMUsM5fZ37dnoSpq+/tmwT1XmjHKsWDTk921KBYZ8O49VedgnNXzSAl+o8Qj/jd3u1fpqLUiQYPRSgfAQAAABceyJvcmlnaW4iOiJodHRwczovL2ljcy1jcmVhdGl2ZS5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTc5MjQ1NDQwMH0="
+      content="AuEcDvNbj2XdRm+ij+Un3AbsdihqNsdGsRC8WnUs7JL3SHu6p8BuTyduVy2908rTxBfXU28LgpoPEaWk1MD0lQYAAABveyJvcmlnaW4iOiJodHRwczovL2ljcy1jcmVhdGl2ZS5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTgwMzk0NTYwMCwiaXNTdWJkb21haW4iOnRydWV9"
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@
         <h1>ワンショットで転写する</h1>
         <p>
           <code>drawElementImage()</code
-          >を1回呼び、その瞬間のHTMLをCanvasへ描画します。ルビも折り返しも入力欄も、ブラウザーがレイアウトした姿のまま画像になります。
+          >をボタン操作で1回呼び、ブラウザーが記録した最新のHTMLの描画状態をCanvasへ転写します。ルビも折り返しも入力欄も、ブラウザーがレイアウトした姿のまま画像になります。
         </p>
       </header>
 
@@ -46,7 +46,7 @@
           <code class="markup-tag">&lt;div&gt;</code>
           <div class="markup-content">
             <div id="dom-view" class="dom-view">
-              <article id="content" class="sample-card">
+              <article id="content" class="sample-card" drawable>
                 <p id="clock" class="clock">--:--:--</p>
                 <p class="sample-copy">
                   <ruby>吾輩<rp>（</rp><rt>わがはい</rt><rp>）</rp></ruby
@@ -83,7 +83,7 @@
         <p id="status" class="status" aria-live="polite"></p>
 
         <div class="markup-block canvas-markup">
-          <code class="markup-tag">&lt;canvas layoutsubtree&gt;</code>
+          <code class="markup-tag">&lt;canvas content="drawable"&gt;</code>
           <div class="markup-content">
             <div class="stage loupe-stage">
               <canvas
@@ -91,7 +91,7 @@
                 class="target"
                 width="720"
                 height="260"
-                layoutsubtree
+                content="drawable"
                 aria-label="HTMLを描画するCanvas"
               ></canvas>
               <canvas
@@ -119,7 +119,7 @@
           <p class="observation-label limit">この段階の制約</p>
           <h2>描いた内容は更新されない</h2>
           <p>
-            時計や入力内容が変わってもCanvasは静止したままです。描画後の内容はピクセルにすぎません。
+            時計や入力内容が変わっても、もう一度「Canvasに描画」を押すまで見た目は更新されません。入力やクリックはできますが、その結果を表示するには再描画が必要です。
           </p>
         </section>
       </div>

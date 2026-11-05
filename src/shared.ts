@@ -2,8 +2,14 @@ import { createHighlighterCore, type HighlighterCore } from "shiki/core";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
 export function isApiAvailable(): boolean {
-  const ctx = document.createElement("canvas").getContext("2d")!;
-  return "drawElementImage" in ctx;
+  const canvas = document.createElement("canvas");
+  canvas.setAttribute("content", "drawable");
+  const ctx = canvas.getContext("2d");
+  return (
+    canvas.content === "drawable" &&
+    typeof canvas.requestPaint === "function" &&
+    typeof ctx?.drawElementImage === "function"
+  );
 }
 
 export function showApiNotice(): void {

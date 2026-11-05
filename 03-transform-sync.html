@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="origin-trial"
-      content="AvRtz0AMUsM5fZ37dnoSpq+/tmwT1XmjHKsWDTk921KBYZ8O49VedgnNXzSAl+o8Qj/jd3u1fpqLUiQYPRSgfAQAAABceyJvcmlnaW4iOiJodHRwczovL2ljcy1jcmVhdGl2ZS5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTc5MjQ1NDQwMH0="
+      content="AuEcDvNbj2XdRm+ij+Un3AbsdihqNsdGsRC8WnUs7JL3SHu6p8BuTyduVy2908rTxBfXU28LgpoPEaWk1MD0lQYAAABveyJvcmlnaW4iOiJodHRwczovL2ljcy1jcmVhdGl2ZS5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTgwMzk0NTYwMCwiaXNTdWJkb21haW4iOnRydWV9"
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +19,7 @@
       }
     </script>
     <link rel="stylesheet" href="/src/style.css" />
-    <title>デモ③ 描画位置とDOMを一致させる | HTML-in-Canvas</title>
+    <title>デモ③ 変形しても操作できる | HTML-in-Canvas</title>
   </head>
   <body>
     <main class="page">
@@ -32,34 +32,17 @@
       </nav>
 
       <header class="demo-header">
-        <h1>描画位置とDOMを一致させる</h1>
+        <h1>変形しても操作できる</h1>
         <p>
-          <code>drawElementImage()</code
-          >が返す変換行列を<code>style.transform</code>へ設定します。カードを移動・拡大・回転しても、見えている位置でそのまま操作できます。
+          <code>drawElementImage()</code>は、2D
+          Canvasの描画位置とDOMの操作位置を自動で同期します。カードを移動・拡大・回転しても、追加の同期処理なしで見えている位置を操作できます。
         </p>
       </header>
 
       <section class="demo-workspace" aria-labelledby="workspace-title">
         <h2 id="workspace-title" class="visually-hidden">操作デモ</h2>
-        <div class="markup-block">
-          <code class="markup-tag">&lt;div&gt;</code>
-          <div class="markup-content">
-            <div
-              id="dom-view"
-              class="dom-view preserve-transform-space is-empty"
-            ></div>
-          </div>
-          <code class="markup-tag">&lt;/div&gt;</code>
-        </div>
-
-        <div class="toolbar">
-          <button id="move-btn" class="button secondary" type="button">
-            ▲ Canvasから出す
-          </button>
-        </div>
-
         <div class="markup-block canvas-markup">
-          <code class="markup-tag">&lt;canvas layoutsubtree&gt;</code>
+          <code class="markup-tag">&lt;canvas content="drawable"&gt;</code>
           <div class="markup-content">
             <div class="stage">
               <canvas
@@ -67,10 +50,10 @@
                 class="target"
                 width="720"
                 height="260"
-                layoutsubtree
+                content="drawable"
                 aria-label="描画位置と操作位置を同期したHTML"
               >
-                <article id="content" class="sample-card">
+                <article id="content" class="sample-card" drawable>
                   <p id="clock" class="clock">--:--:--</p>
                   <p class="sample-copy">
                     <ruby>吾輩<rp>（</rp><rt>わがはい</rt><rp>）</rp></ruby
@@ -134,7 +117,7 @@
           <p class="observation-label can">確認できること</p>
           <h2>見た目と操作が一致する</h2>
           <p>
-            描画と同じ変換をHTML側のヒットテストにも反映するため、移動・拡大・回転後も操作できます。
+            ブラウザーが描画時の変換をHTML側のヒットテストにも反映するため、移動・拡大・回転後も入力やクリックができます。
           </p>
         </section>
         <section>

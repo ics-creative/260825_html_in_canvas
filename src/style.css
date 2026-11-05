@@ -412,10 +412,6 @@ code {
   background: var(--content-bg-light);
 }
 
-.dom-view.preserve-transform-space:has(.sample-card) {
-  padding-bottom: 72px;
-}
-
 .dom-view.is-empty {
   align-items: center;
   justify-content: center;
